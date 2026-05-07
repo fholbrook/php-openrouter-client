@@ -1,6 +1,6 @@
 <?php
 
-namespace fholbrook\Openrouter\Tests\Unit\DTO;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use fholbrook\Openrouter\DTO\ResponseData;
 use fholbrook\Openrouter\DTO\NonChatChoice;

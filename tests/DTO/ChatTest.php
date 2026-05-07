@@ -47,4 +47,24 @@ class ChatTest extends TestCase
         $this->assertEquals('user', $chat->messages[0]->role);
         $this->assertEquals('Hello', $chat->messages[0]->content);
     }
+
+    public function testToArrayWithMetadataIncludesId(): void
+    {
+        $chat = new Chat('chat-id-123', [new Message('Hello', 'user')]);
+
+        $array = $chat->toArray(includeMetadata: true);
+
+        $this->assertSame('chat-id-123', $array['id']);
+        $this->assertCount(1, $array['messages']);
+    }
+
+    public function testToArrayWithEmptyMessagesAndMetadataKeepsId(): void
+    {
+        $chat = new Chat('only-id');
+
+        $array = $chat->toArray(includeMetadata: true);
+
+        $this->assertSame('only-id', $array['id']);
+        $this->assertArrayNotHasKey('messages', $array, 'empty messages array is filtered');
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace fholbrook\Openrouter\Tests\Unit\DTO;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use fholbrook\Openrouter\DTO\ProviderPreferences;
 use fholbrook\Openrouter\Enum\DataCollectionType;

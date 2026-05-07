@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleRetry\GuzzleRetryMiddleware;
 
-final class OpenRouterConfig
+class OpenRouterConfig
 {
     public function __construct(
         private readonly string $apiKey,

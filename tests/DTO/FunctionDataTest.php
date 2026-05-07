@@ -1,6 +1,6 @@
 <?php
 
-namespace fholbrook\Openrouter\Tests\Unit\DTO;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use fholbrook\Openrouter\DTO\FunctionData;
 use fholbrook\Openrouter\DTO\Property;
@@ -77,6 +77,16 @@ class FunctionDataTest extends TestCase
         $this->assertEquals($data['arguments'], $functionData->arguments);
         $this->assertEquals($data['description'], $functionData->description);
         $this->assertEquals($data['parameters'], $functionData->parameters);
+    }
+
+    public function testToArrayWithNullParameters()
+    {
+        $functionData = new FunctionData('testFunction', description: 'no params');
+
+        $this->assertSame(
+            ['name' => 'testFunction', 'description' => 'no params'],
+            $functionData->toArray()
+        );
     }
 
     public function testFromArrayWithMinimalData()

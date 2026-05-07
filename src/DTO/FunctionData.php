@@ -45,7 +45,7 @@ final class FunctionData
                 'name' => $this->name,
                 'arguments' => $this->arguments,
                 'description' => $this->description,
-                'parameters' => $this->parameters->toArray(),
+                'parameters' => $this->parameters?->toArray(),
             ]
         );
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace fholbrook\Openrouter\Tests\Unit;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
 use fholbrook\Openrouter\DTO\Message;
-use fholbrook\Openrouter\DTO\ToolCall;
 use fholbrook\Openrouter\Contracts\StampInterface;
+use fholbrook\Openrouter\Stamps\ModelStamp;
 
 class MessageTest extends TestCase
 {
@@ -67,5 +67,30 @@ class MessageTest extends TestCase
         $this->assertEquals('test content', $message->content);
         $this->assertEquals('user', $message->role);
         $this->assertEquals('John', $message->name);
+    }
+
+    public function testToArrayFiltersNullsAndOmitsStampsByDefault(): void
+    {
+        $message = new Message(content: 'hello', role: 'user');
+        $message->addStamp(new ModelStamp('m'));
+
+        $array = $message->toArray();
+
+        $this->assertSame(['content' => 'hello', 'role' => 'user'], $array);
+        $this->assertArrayNotHasKey('stamps', $array);
+        $this->assertArrayNotHasKey('name', $array);
+        $this->assertArrayNotHasKey('toolCalls', $array);
+    }
+
+    public function testToArrayIncludesStampsWithFqdnWhenRequested(): void
+    {
+        $message = new Message(content: 'hi', role: 'assistant');
+        $message->addStamp(new ModelStamp('openai/gpt-4'));
+
+        $array = $message->toArray(includeStamps: true);
+
+        $this->assertCount(1, $array['stamps']);
+        $this->assertSame('openai/gpt-4', $array['stamps'][0]['model']);
+        $this->assertSame(ModelStamp::class, $array['stamps'][0]['fqdn']);
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace fholbrook\Tests\Openrouter\DTO;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use fholbrook\Openrouter\DTO\NonChatChoice;
 use PHPUnit\Framework\TestCase;

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace fholbrook\Openrouter\Tests\Unit\DTO;
+namespace fholbrook\Openrouter\Tests\DTO;
 
 use fholbrook\Openrouter\DTO\Property;
 use fholbrook\Openrouter\DTO\Schema;
