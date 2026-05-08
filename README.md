@@ -7,6 +7,7 @@ This package provides an easy-to-use interface for integrating **[OpenRouter](ht
 
 ## Table of Contents
 
+- [Installation](#-installation)
 - [Requirements](#-requirements)
 - [Configuration](#-configuration)
 - [Usage](#-usage)
@@ -27,6 +28,12 @@ This package provides an easy-to-use interface for integrating **[OpenRouter](ht
 
 > Special thanks to [Moe Mizrak](https://github.com/moe-mizrak) for his work on [laravel-openrouter](https://github.com/moe-mizrak/laravel-openrouter). This package is a derivative of his work.
 
+
+## Installation
+Install via Composer:
+```bash
+composer require fholbrook/php-openrouter-client
+```
 
 ## Requirements
 This is a low dependency package, but you need to ensure that your environment meets the following requirements:
