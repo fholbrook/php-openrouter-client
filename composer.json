@@ -16,7 +16,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Flint Holbrook"
+            "name": "Flint Holbrook",
+            "email": "f.holbrook@gmail.com"
         },
         {
             "name": "Moe Mizrak"
@@ -49,6 +50,6 @@
     "scripts": {
         "test": "phpunit"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
